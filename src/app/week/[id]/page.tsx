@@ -17,13 +17,27 @@ export default async function Page({
   const selectedWeek = WEEKS.find((week) => week.id === currentWeekId);
 
   if (!selectedWeek) {
-    return <div>Týden {currentWeekId} nebyl nalezen</div>;
+    return (
+      <div>
+        <div className="my-4">
+          <WeekMenu />
+        </div>
+        Týden {currentWeekId} nebyl nalezen
+      </div>
+    );
   }
 
   const today = new Date();
 
   if (today.getTime() < selectedWeek.from.getTime()) {
-    return <div className="my-4">Týden {currentWeekId} ještě nezačal</div>;
+    return (
+      <div className="my-4">
+        <div className="my-4">
+          <WeekMenu />
+        </div>
+        Týden {currentWeekId} ještě nezačal
+      </div>
+    );
   }
 
   const topRunners = await getTopRunners(selectedWeek.from, selectedWeek.to);

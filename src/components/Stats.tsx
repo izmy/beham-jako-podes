@@ -9,11 +9,15 @@ export default async function Stats() {
     _count: true,
   });
 
+  const userStats = await prisma.activity.groupBy({
+    by: ["user"],
+  });
+
   return (
     <div className="flex justify-center mt-4">
       <div className="bg-gradient-to-b from-strava to-strava-dark text-white shadow-md rounded-lg p-6 mb-4 w-full max-w-xl">
         <p className="text-xl text-center">
-          <strong>{stats._count}</strong> běžců uběhlo celkem{" "}
+          <strong>{userStats.length}</strong> běžců uběhlo celkem{" "}
           <strong>
             {stats._sum.distance != null
               ? formatDistance(stats._sum.distance, 0)

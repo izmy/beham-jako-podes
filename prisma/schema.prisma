@@ -18,3 +18,10 @@ model Activity {
 
   @@map("activities")
 }
+
+model Constants {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  lastUpdate DateTime @db.Date
+
+  @@map("constants")
+}

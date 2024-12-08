@@ -59,13 +59,12 @@ export default function WeekMenu() {
 
         if (disabled) {
           return (
-            <button
-              type="button"
+            <div
               key={week.id}
-              className="px-4 py-2 bg-strava text-white rounded opacity-50 cursor-not-allowed"
+              className="px-4 py-2 bg-strava-light text-white rounded cursor-not-allowed"
             >
               {week.label}
-            </button>
+            </div>
           );
         }
 

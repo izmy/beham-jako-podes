@@ -15,6 +15,7 @@ export default {
         strava: {
           DEFAULT: "#fc5200",
           dark: "#e34a00",
+          light: "#ffab8f",
         },
       },
     },

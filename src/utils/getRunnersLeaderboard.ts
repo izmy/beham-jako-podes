@@ -1,4 +1,5 @@
 import prisma from "@/lib/db";
+import { cookies } from "next/headers";
 
 export type RunnerLeaderboard = {
   user: string;
@@ -11,6 +12,8 @@ export const getTopRunners = async (
   from?: Date,
   to?: Date
 ): Promise<RunnerLeaderboard[]> => {
+  await cookies();
+
   const whereClause =
     from && to
       ? {

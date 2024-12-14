@@ -1,5 +1,6 @@
 "use client";
-import WeekMenu, { getCurrentWeek } from "@/components/WeekMenu";
+import WeekMenu from "@/components/WeekMenu";
+import { getCurrentWeek } from "@/utils/getCurrentWeek";
 import { useRouter } from "next/navigation";
 
 export default function Page() {

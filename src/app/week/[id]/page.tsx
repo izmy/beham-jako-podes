@@ -1,7 +1,8 @@
 import React from "react";
 import { getTopRunners } from "@/utils/getRunnersLeaderboard";
 import LeaderboardTable from "@/components/LeaderboardTable";
-import WeekMenu, { WEEKS } from "@/components/WeekMenu";
+import WeekMenu from "@/components/WeekMenu";
+import { WEEKS } from "@/utils/getCurrentWeek";
 
 export default async function Page({
   params,

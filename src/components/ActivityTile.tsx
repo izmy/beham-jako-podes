@@ -8,7 +8,7 @@ interface ActivityTileProps {
 
 function ActivityTile({ activity }: ActivityTileProps) {
   return (
-    <div className="bg-white shadow-xl rounded-lg p-3 m-4">
+    <div className="bg-white shadow-xl rounded-lg p-2">
       <div className="flex flex-col space-y-2">
         <a
           href={`https://www.strava.com/activities/${activity.id}`}
@@ -26,21 +26,23 @@ function ActivityTile({ activity }: ActivityTileProps) {
 
         <div className="border-t border-gray-200 my-4" />
 
-        <div className="flex justify-between">
-          <span className="text-gray-700 font-bold">Distance:</span>
-          <span className="text-gray-700">{activity.distance} km</span>
-        </div>
-        <div className="flex justify-between">
-          <span className="text-gray-700 font-bold">Time:</span>
-          <span className="text-gray-700">
-            {formatActivityTime(activity.time)}
-          </span>
-        </div>
-        <div className="flex justify-between">
-          <span className="text-gray-700 font-bold">Pace:</span>
-          <span className="text-gray-700">
-            {calculatePace(activity.distance, activity.time)}
-          </span>
+        <div className="flex justify-between space-x-4">
+          <div className="flex flex-col items-center">
+            <span className="text-gray-700 font-bold">Distance</span>
+            <span className="text-gray-700">{activity.distance} km</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <span className="text-gray-700 font-bold">Time</span>
+            <span className="text-gray-700">
+              {formatActivityTime(activity.time)}
+            </span>
+          </div>
+          <div className="flex flex-col items-center">
+            <span className="text-gray-700 font-bold">Pace</span>
+            <span className="text-gray-700">
+              {calculatePace(activity.distance, activity.time)}
+            </span>
+          </div>
         </div>
       </div>
     </div>

@@ -1,8 +1,10 @@
 import Image from "next/image";
 import prisma from "@/lib/db";
 import React from "react";
+import { cookies } from "next/headers";
 
 const Footer = async () => {
+  await cookies();
   const constants = await prisma.constants.findFirst({});
 
   const lastUpdate = constants?.lastUpdate

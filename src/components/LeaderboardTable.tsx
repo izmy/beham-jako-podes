@@ -97,10 +97,10 @@ export default function LeaderboardTable({
                   {runner.activityCount}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right tabular-nums">
-                  {formatDistance(runner.maxDistance)}
+                  {formatActivityTime(runner.totalTime)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 text-right tabular-nums">
-                  {formatActivityTime(runner.totalTime)}
+                  {formatDistance(runner.maxDistance)}
                 </td>
                 {showKudos && (
                   <>

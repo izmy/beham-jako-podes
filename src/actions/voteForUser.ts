@@ -7,7 +7,7 @@ import { headers } from "next/headers";
 
 export const voteForUser = async (formData: FormData) => {
   const user = formData.get("user") as string;
-  const ip = (await headers()).get("x-forwarded-for");
+  const ip = (await headers()).get("x-forwarded-for")?.split(",")[0] ?? null;
   const date = new Date();
 
   if (ip == null) {

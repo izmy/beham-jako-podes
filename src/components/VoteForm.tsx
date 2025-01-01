@@ -4,7 +4,7 @@ import { getRecentVote } from "@/utils/getRecentVote";
 import { headers } from "next/headers";
 
 export default async function VoteForm({ user }: { user: string }) {
-  const ip = (await headers()).get("x-forwarded-for");
+  const ip = (await headers()).get("x-forwarded-for")?.split(",")[0] ?? null;
   const recentVote = ip ? await getRecentVote(ip) : null;
   const enableVoting = !recentVote || canVote(recentVote.date);
 

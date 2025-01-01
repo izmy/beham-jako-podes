@@ -19,6 +19,16 @@ model Activity {
   @@map("activities")
 }
 
+model Votes {
+  id   String   @id @default(auto()) @map("_id") @db.ObjectId
+  user String
+  ip   String
+  date DateTime @db.Date
+
+  @@unique([ip, date])
+  @@map("votes")
+}
+
 model Constants {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
   lastUpdate DateTime @db.Date

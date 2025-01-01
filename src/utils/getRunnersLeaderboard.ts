@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 export type RunnerLeaderboard = {
   user: string;
   totalDistance: number;
+  totalTime: number;
   activityCount: number;
   maxDistance: number;
 };
@@ -29,6 +30,7 @@ export const getTopRunners = async (
     where: whereClause,
     _sum: {
       distance: true,
+      time: true,
     },
     _count: {
       user: true,
@@ -46,6 +48,7 @@ export const getTopRunners = async (
   return topRunners.map((runner) => ({
     user: runner.user,
     totalDistance: runner._sum.distance || 0,
+    totalTime: runner._sum.time || 0,
     activityCount: runner._count.user,
     maxDistance: runner._max.distance || 0,
   }));
